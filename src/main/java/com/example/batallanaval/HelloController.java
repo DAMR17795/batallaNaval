@@ -27,6 +27,9 @@ public class HelloController {
     private ImageView barcoImagen;
 
     public void movimiento(ImageView barco) {
+        int maximoY= 751;
+        int maximoX= 988;
+
         Timeline mover = new Timeline(new KeyFrame(Duration.seconds(0.01), (ActionEvent ae) -> {
             int numPosicion = (int) (Math.random()*4+1);
 
