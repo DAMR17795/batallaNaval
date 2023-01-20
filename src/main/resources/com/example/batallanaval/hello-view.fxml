@@ -14,7 +14,7 @@
             <Font name="System Bold" size="24.0" />
          </font></Label>
       <Button fx:id="botonEmpezar" layoutX="460.0" layoutY="553.0" mnemonicParsing="false" onMouseClicked="#moverBarco" text="Button" />
-      <Label fx:id="barcoAzul" layoutX="876.0" layoutY="369.0" text="----&gt;" textFill="BLUE">
+      <Label fx:id="barcoAzul" layoutX="876.0" layoutY="369.0" rotate="180.0" text="----&gt;" textFill="BLUE">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
