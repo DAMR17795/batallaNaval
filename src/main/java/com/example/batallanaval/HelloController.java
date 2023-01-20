@@ -7,100 +7,163 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
 public class HelloController {
 
 
     @FXML
-    private Label barco1;
-    @FXML
     private Button botonEmpezar;
 
-    private void moverBarco() {
-
-    }
 
     int movimientoX = 5;
     int movimientoY = 5;
-
     @FXML
-    public void moverBarco(Event event) {
-        //X:988 Y:751
+    private Label barco1;
+    @FXML
+    private Label barcoAzul;
+    @FXML
+    private ImageView barcoImagen;
 
+    public void movimiento(ImageView barco) {
         Timeline mover = new Timeline(new KeyFrame(Duration.seconds(0.01), (ActionEvent ae) -> {
-            barco1.setLayoutX(barco1.getLayoutX() + movimientoX);
-            barco1.setLayoutY(barco1.getLayoutY() + movimientoY);
+            int numPosicion = (int) (Math.random()*4+1);
+
+
+            barco.setLayoutX(barco.getLayoutX() + movimientoX);
+            barco.setLayoutY(barco.getLayoutY() + movimientoY);
 
             int numeroAleatorio = (int) (Math.random()*2+1);
 
 
             //Cuando golpea abajo Y
-            if (barco1.getLayoutY() >= 751 && movimientoX == 5) {
-                System.out.println("Numero aleatorio: " + numeroAleatorio);
+            if (barco.getLayoutY() >= 751 && movimientoX == 5) {
                 movimientoY = -5;
-                barco1.setRotate(0);
-                barco1.setRotate(315);
+                barco.setRotate(0);
+                barco.setRotate(315);
                 numeroAleatorio = (int) (Math.random()*2+1);
 
             }
 
-            if (barco1.getLayoutY() >= 751 && movimientoX == 5 && numeroAleatorio==2) {
-                System.out.println("Numero aleatorio: " + numeroAleatorio);
+            if (barco.getLayoutY() >= 751 && movimientoX == 5 && numeroAleatorio==2) {
                 movimientoY = -5;
                 movimientoX = -5;
-                barco1.setRotate(0);
-                barco1.setRotate(135);
+                barco.setRotate(0);
+                barco.setRotate(135);
                 numeroAleatorio = (int) (Math.random()*2+1);
             }
 
-            if (barco1.getLayoutY() >= 751 && movimientoX == -5) {
+            if (barco.getLayoutY() >= 751 && movimientoX == -5) {
                 movimientoY = -5;
-                barco1.setRotate(0);
-                barco1.setRotate(225);
+                barco.setRotate(0);
+                barco.setRotate(225);
+                numeroAleatorio = (int) (Math.random()*2+1);
+            }
+
+            if (barco.getLayoutY() >= 751 && movimientoX == -5 && numeroAleatorio==2) {
+                movimientoY = -5;
+                movimientoX=   5;
+                barco.setRotate(0);
+                barco.setRotate(315);
+                numeroAleatorio = (int) (Math.random()*2+1);
             }
 
             //Cuando golpea derecha X
 
-            if (barco1.getLayoutX() >= 988 && movimientoY == 5) {
+            if (barcoImagen.getLayoutX() >= 988 && movimientoY == 5) {
                 movimientoX = -5;
-                barco1.setRotate(0);
-                barco1.setRotate(135);
+                barco.setRotate(0);
+                barco.setRotate(135);
+                numeroAleatorio = (int) (Math.random()*2+1);
             }
 
-            if (barco1.getLayoutX() >= 988 && movimientoY == -5) {
+            if (barco.getLayoutX() >= 988 && movimientoY == 5 && numeroAleatorio==2) {
                 movimientoX = -5;
-                barco1.setRotate(0);
-                barco1.setRotate(225);
+                movimientoY = -5;
+                barco.setRotate(0);
+                barco.setRotate(225);
+                numeroAleatorio = (int) (Math.random()*2+1);
+            }
+
+            if (barco.getLayoutX() >= 988 && movimientoY == -5) {
+                movimientoX = -5;
+                barco.setRotate(0);
+                barco.setRotate(225);
+                numeroAleatorio = (int) (Math.random()*2+1);
+            }
+
+            if (barco.getLayoutX() >= 988 && movimientoY == -5 && numeroAleatorio==2) {
+                movimientoX = -5;
+                movimientoY = 5;
+                barco.setRotate(0);
+                barco.setRotate(135);
+                numeroAleatorio = (int) (Math.random()*2+1);
             }
 
             //Cuando golpea arriba Y
 
-            if (barco1.getLayoutY() <= 0 && movimientoX==-5) {
+            if (barco.getLayoutY() <= 0 && movimientoX==-5) {
                 movimientoY = 5;
-                barco1.setRotate(0);
-                barco1.setRotate(135);
+                barco.setRotate(0);
+                barco.setRotate(135);
+                numeroAleatorio = (int) (Math.random()*2+1);
             }
 
-            if (barco1.getLayoutY() <= 0 && movimientoX== 5) {
+            if (barco.getLayoutY() <= 0 && movimientoX==-5 && numeroAleatorio==2) {
                 movimientoY = 5;
-                barco1.setRotate(0);
-                barco1.setRotate(45);
+                movimientoX = 5;
+                barco.setRotate(0);
+                barco.setRotate(45);
+                numeroAleatorio = (int) (Math.random()*2+1);
+            }
+
+            if (barco.getLayoutY() <= 0 && movimientoX== 5) {
+                movimientoY = 5;
+                barco.setRotate(0);
+                barco.setRotate(45);
+                numeroAleatorio = (int) (Math.random()*2+1);
+            }
+
+            if (barco.getLayoutY() <= 0 && movimientoX== 5 && numeroAleatorio==2) {
+                movimientoY = 5;
+                movimientoX = -5;
+                barco.setRotate(0);
+                barco.setRotate(135);
+                numeroAleatorio = (int) (Math.random()*2+1);
             }
 
             //Cuando golpea izquierda X
 
 
-            if (barco1.getLayoutX() <= 0 && movimientoY==5) {
+            if (barco.getLayoutX() <= 0 && movimientoY==5) {
                 movimientoX = 5;
-                barco1.setRotate(0);
-                barco1.setRotate(45);
+                barco.setRotate(0);
+                barco.setRotate(45);
+                numeroAleatorio = (int) (Math.random()*2+1);
             }
 
-            if (barco1.getLayoutX() <= 0 && movimientoY==-5) {
+            if (barco.getLayoutX() <= 0 && movimientoY==5 && numeroAleatorio==2) {
                 movimientoX = 5;
-                barco1.setRotate(0);
-                barco1.setRotate(315);
+                movimientoY = -5;
+                barco.setRotate(0);
+                barco.setRotate(315);
+                numeroAleatorio = (int) (Math.random()*2+1);
+            }
+
+            if (barco.getLayoutX() <= 0 && movimientoY==-5) {
+                movimientoX = 5;
+                barco.setRotate(0);
+                barco.setRotate(315);
+                numeroAleatorio = (int) (Math.random()*2+1);
+            }
+
+            if (barco.getLayoutX() <= 0 && movimientoY==-5 && numeroAleatorio==2) {
+                movimientoX = 5;
+                movimientoY = 5;
+                barco.setRotate(0);
+                barco.setRotate(45);
+                numeroAleatorio = (int) (Math.random()*2+1);
             }
 
             //System.out.println("Posicion X: " +  barco1.getLayoutX());
@@ -111,11 +174,16 @@ public class HelloController {
 
         mover.setCycleCount(Timeline.INDEFINITE);
         mover.play();
+    }
 
+    @FXML
+    public void moverBarco(Event event) {
+       movimiento(barcoImagen);
     }
 
     public void initialize() {
-        barco1.setRotate(45);
+        int aleatorio = (int) (Math.random()*360+1);
+        barcoImagen.setRotate(45);
     }
 
 

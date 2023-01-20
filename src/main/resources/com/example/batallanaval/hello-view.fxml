@@ -2,15 +2,27 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.batallanaval.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" styleClass="anchor" stylesheets="@../../../CSS/archivo.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.batallanaval.HelloController">
    <children>
-      <Label fx:id="barco1" layoutX="68.0" layoutY="351.0" text="----&gt;">
+      <Label fx:id="barco1" layoutX="68.0" layoutY="351.0" prefWidth="56.0" text="----&gt;" textFill="RED">
          <font>
             <Font name="System Bold" size="24.0" />
          </font></Label>
       <Button fx:id="botonEmpezar" layoutX="460.0" layoutY="553.0" mnemonicParsing="false" onMouseClicked="#moverBarco" text="Button" />
+      <Label fx:id="barcoAzul" layoutX="876.0" layoutY="369.0" text="----&gt;" textFill="BLUE">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="barcoImagen" fitHeight="62.0" fitWidth="56.0" layoutX="68.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true" scaleY="4.0">
+         <image>
+            <Image url="@../../../imagenes/barco.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
