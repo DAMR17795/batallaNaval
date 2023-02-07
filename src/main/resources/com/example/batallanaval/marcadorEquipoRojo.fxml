@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="color" stylesheets="@CSS/datosFrancia.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="42.0" layoutY="155.0" styleClass="text-color" stylesheets="@CSS/datosFrancia.css" text="Destructor" />
+      <ProgressBar fx:id="pbVidaDestructor" layoutX="42.0" layoutY="173.0" prefHeight="18.0" prefWidth="122.0" progress="0.0" stylesheets="@CSS/datosFrancia.css" />
+      <Label fx:id="vidaDestructor" layoutX="142.0" layoutY="155.0" styleClass="text-color" stylesheets="@CSS/datosFrancia.css" text="0" />
+      <Label layoutX="41.0" layoutY="110.0" styleClass="text-color" stylesheets="@CSS/datosFrancia.css" text="Acorazado" />
+      <Label fx:id="vidaAcorazado" layoutX="141.0" layoutY="110.0" styleClass="text-color" stylesheets="@CSS/datosFrancia.css" text="0" />
+      <ProgressBar fx:id="pbVidaAcorazado" layoutX="42.0" layoutY="128.0" prefHeight="18.0" prefWidth="122.0" progress="0.0" stylesheets="@CSS/datosFrancia.css" />
+      <Label layoutX="40.0" layoutY="64.0" styleClass="text-color" stylesheets="@CSS/datosFrancia.css" text="Submarino" />
+      <Label layoutX="41.0" layoutY="13.0" styleClass="text-color" stylesheets="@CSS/datosFrancia.css" text="Lancha" />
+      <Label fx:id="vidaSubmarino" layoutX="142.0" layoutY="64.0" styleClass="text-color" stylesheets="@CSS/datosFrancia.css" text="0" />
+      <Label fx:id="vidaLancha" layoutX="141.0" layoutY="13.0" styleClass="text-color" stylesheets="@CSS/datosFrancia.css" text="0" />
+      <ProgressBar fx:id="pbVidaLancha" layoutX="39.0" layoutY="37.0" prefHeight="18.0" prefWidth="122.0" progress="0.0" stylesheets="@CSS/datosFrancia.css" />
+      <ProgressBar fx:id="pbVidaSubmarino" layoutX="39.0" layoutY="82.0" prefHeight="18.0" prefWidth="122.0" progress="0.0" stylesheets="@CSS/datosFrancia.css" />
+   </children>
+</AnchorPane>

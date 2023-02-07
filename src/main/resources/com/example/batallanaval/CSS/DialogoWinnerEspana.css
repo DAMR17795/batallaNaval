@@ -1,0 +1,41 @@
+.button{
+
+    -fx-cursor:hand;
+    -fx-background-radius: 50;
+    -fx-background-color: linear-gradient(to bottom, #0022ff 0%, #8290f8 30%, #b2b2ff 100%);
+}
+
+
+
+
+.dialog {
+
+   -fx-background-color: linear-gradient(to bottom, #0022ff 0%, #3651ff 30%, #9eaaff 100%);
+
+}
+
+.dialog:header *.header-panel{
+
+    -fx-background-color: linear-gradient(to right, yellow, magenta);
+
+}
+
+
+.dialog > *.content.label {
+
+    -fx-font-size:20px;
+    -fx-font-weight:bold;
+}
+
+
+.dialog:header *.header-panel *.label{
+
+    -fx-font-size:20px;
+}
+
+.dialog > *.button-bar *.button {
+
+    -fx-pref-width:120px;
+
+}
+
