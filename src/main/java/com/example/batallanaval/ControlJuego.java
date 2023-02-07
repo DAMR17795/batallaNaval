@@ -67,12 +67,9 @@ public class ControlJuego {
                 winner = "Rojo";
                 mostrarEquipoGanador(winner);
                 ganador.stop();
-
-
             }
 
             if (barcosRojos == 0 && barcosAzules >= 1) {
-
                 winner = "Azul";
                 mostrarEquipoGanador(winner);
                 ganador.stop();
@@ -85,8 +82,8 @@ public class ControlJuego {
 
         ganador.setOnFinished(o -> {
             System.out.println("Ganador: " + winner);
-
             System.exit(0);
+
 
         });
 
@@ -95,7 +92,6 @@ public class ControlJuego {
 
 
     public void mostrarEquipoGanador(String nombreEquipo) {
-
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Equipo ganador");
         alert.setHeaderText(null);
@@ -105,6 +101,7 @@ public class ControlJuego {
 
 
         Platform.runLater(() -> {
+
             dialog = alert.getDialogPane();
 
             if (nombreEquipo.equals("Azul")) {
@@ -117,6 +114,7 @@ public class ControlJuego {
                 mediaPlayer= new MediaPlayer(pick);
                 mediaPlayer.play();
 
+
             } else {
                 dialog.getStylesheets().add(this.getClass().getResource("CSS/DialogoWinnerFrancia.css").toString());
                 dialog.getStyleClass().add("dialog");
@@ -128,10 +126,10 @@ public class ControlJuego {
                 mediaPlayer= new MediaPlayer(pick);
                 mediaPlayer.play();
             }
-
             dialog.getStyleClass().add("dialog");
             alert.setContentText("El equipo ganador es: " + nombreEquipo);
             alert.showAndWait().ifPresent(response -> System.exit(0));
+
         });
 
 
