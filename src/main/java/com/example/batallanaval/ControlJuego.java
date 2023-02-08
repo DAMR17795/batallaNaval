@@ -28,7 +28,6 @@ public class ControlJuego {
     public ControlJuego() {
         barcos = new ArrayList<Barcos>();
         dialog = new DialogPane();
-
     }
 
     public synchronized void addBarco(Barcos barco) {
@@ -126,6 +125,10 @@ public class ControlJuego {
                 mediaPlayer= new MediaPlayer(pick);
                 mediaPlayer.play();
             }
+
+            HelloApplication ha = new HelloApplication();
+            ha.mediaPlayerPause().stop();
+
             dialog.getStyleClass().add("dialog");
             alert.setContentText("El equipo ganador es: " + nombreEquipo);
             alert.showAndWait().ifPresent(response -> System.exit(0));

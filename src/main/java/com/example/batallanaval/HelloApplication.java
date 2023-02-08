@@ -1,6 +1,7 @@
 package com.example.batallanaval;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.media.Media;
@@ -20,13 +21,20 @@ public class HelloApplication extends Application {
         stage.setX(255);
 
         stage.setResizable(false);
-        Media pick2 = new Media(this.getClass().getResource("musica/cancionBatallaMenos.mp3").toString());
-        mediaPlayer2 = new MediaPlayer(pick2);
-        mediaPlayer2.setVolume(100000);
-        mediaPlayer2.play();
+
+        Platform.runLater(() -> {
+            Media pick2 = new Media(this.getClass().getResource("musica/cancionBatallaMenos.mp3").toString());
+            mediaPlayer2 = new MediaPlayer(pick2);
+            mediaPlayer2.play();
+        });
+
 
         stage.setScene(scene);
         stage.show();
+    }
+
+    public synchronized MediaPlayer mediaPlayerPause() {
+        return mediaPlayer2;
     }
 
     public static void main(String[] args) {

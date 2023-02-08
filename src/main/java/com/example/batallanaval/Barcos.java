@@ -122,20 +122,14 @@ public class Barcos {
     }
 
     public synchronized void pararBarcos(Barcos barco1, Barcos barco2) {
-
         barco1.setModoDisparo(true);
         barco2.setModoDisparo(true);
-
     }
 
     public synchronized void moverBarcos() {
-
         for (Barcos barco : barcos) {
-
             barco.setModoDisparo(false);
-
         }
-
     }
 
     public String getEquipo() {
@@ -156,35 +150,24 @@ public class Barcos {
 
             if (barco.getVida() > 0) {
 
-
                 if (barco.getEquipo().equals("España")) {
-
                     barcoEsp++;
                 }
 
                 if (barco.getEquipo().equals("Francia")) {
-
                     barcoFr++;
-
                 }
                 contador++;
-
             }
-
         }
 
 
         if (barcoEsp >= 1 && barcoFr == 0) {
-
             moverse.stop();
-
-
         }
 
         if (barcoFr >= 1 && barcoEsp == 0) {
-
             moverse.stop();
-
         }
     }
 
@@ -206,17 +189,11 @@ public class Barcos {
     }
 
     public void sonidoDisparo() {
-
         Platform.runLater(() -> {
-
-
             Media pick = new Media(this.getClass().getResource("musica/aa.mp3").toString());
             mediaPlayer= new MediaPlayer(pick);
             mediaPlayer.play();
-
         });
-
-
     }
 
 
@@ -232,8 +209,6 @@ public class Barcos {
         double barco1Y = barco1.getImagenBarco().getBoundsInParent().getMinY() + barco1.getImagenBarco().getBoundsInParent().getHeight() / 2;
 
         if (barco1.getNombre().equals("lancha") || barco1.getNombre().equals("destructor")) {
-
-
             barco1X -= 6;
             barco1Y -= 6;
         }
@@ -243,8 +218,6 @@ public class Barcos {
 
 
         if (barco2.getNombre().equals("lancha") || barco2.getNombre().equals("destructor")) {
-
-
             barco2X -= 6;
             barco2Y -= 6;
         }
@@ -255,6 +228,7 @@ public class Barcos {
                 new KeyFrame(Duration.seconds(2), new KeyValue(bola.xProperty(), barco2X),
                         new KeyValue(bola.yProperty(), barco2Y))
         );
+
         animacion.setOnFinished(e -> {
             int ultimoIndex = fondo.getChildren().size() - 1;
             fondo.getChildren().remove(ultimoIndex);
@@ -262,6 +236,7 @@ public class Barcos {
             barco2.setModoDisparo(false);
             cambiarImagenBarco(barco2);
         });
+
         animacion.play();
 
 
@@ -334,13 +309,10 @@ public class Barcos {
     }
 
     public synchronized void barcoMuerto() {
-
         if (this.getVida() <= 0) {
-
             moverse.stop();
             this.vida = 0;
         }
-
     }
 
 
@@ -359,9 +331,7 @@ public class Barcos {
     }
 
     public synchronized void detectarParedes() {
-
         ColisionesBarcos.detectarColision(this);
-
     }
 
 
