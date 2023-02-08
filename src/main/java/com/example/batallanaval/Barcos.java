@@ -306,12 +306,9 @@ public class Barcos {
 
 
             Platform.runLater(() -> {
-
-
                 Media pick = new Media(this.getClass().getResource("musica/explosion.mp3").toString());
                 mediaPlayer= new MediaPlayer(pick);
                 mediaPlayer.play();
-
             });
 
             Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
