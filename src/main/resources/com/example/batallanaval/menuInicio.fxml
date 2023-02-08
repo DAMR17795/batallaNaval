@@ -5,15 +5,14 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.batallanaval.InicioController">
    <children>
-      <ImageView fitHeight="775.0" fitWidth="1024.0" layoutX="-1.0" layoutY="-1.0" pickOnBounds="true">
+      <ImageView fitHeight="775.0" fitWidth="1035.0" layoutX="-1.0" layoutY="-1.0" pickOnBounds="true">
          <image>
             <Image url="@imagenes/imagenComienzoDef.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="461.0" layoutY="624.0" mnemonicParsing="false" stylesheets="@CSS/inicio.css" text="COMENZAR" />
-      <Button layoutX="484.0" layoutY="699.0" mnemonicParsing="false" stylesheets="@CSS/inicio.css" text="SALIR" />
+      <Button fx:id="btComenzar" layoutX="461.0" layoutY="624.0" mnemonicParsing="false" onMouseClicked="#comenzarJuego" stylesheets="@CSS/inicio.css" text="COMENZAR" />
+      <Button fx:id="btSalir" layoutX="484.0" layoutY="699.0" mnemonicParsing="false" onMouseClicked="#salirJuego" stylesheets="@CSS/inicio.css" text="SALIR" />
    </children>
 </AnchorPane>

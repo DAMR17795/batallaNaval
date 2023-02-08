@@ -16,7 +16,7 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1024, 992);
-        stage.setTitle("Batalla Naval");
+        stage.setTitle("Batalla Naval - Daniel Martín Romero");
         stage.setY(0);
         stage.setX(500);
 
@@ -32,10 +32,6 @@ public class HelloApplication extends Application {
 
         stage.setScene(scene);
         stage.show();
-    }
-
-    public synchronized MediaPlayer mediaPlayerPause() {
-        return mediaPlayer2;
     }
 
     public static void main(String[] args) {

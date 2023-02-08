@@ -17,17 +17,16 @@ public class Inicio extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Inicio.class.getResource("inicio.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1535, 768);
-        primaryStage.setTitle("Batalla Naval");
+        FXMLLoader fxmlLoader = new FXMLLoader(Inicio.class.getResource("menuInicio.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 1024, 768);
+        primaryStage.setTitle("Batalla Naval - Daniel Martín Romero");
 
-        primaryStage.getIcons().add(new Image(this.getClass().getResource("images/iconoApp.png").toString()));
+        primaryStage.getIcons().add(new Image(this.getClass().getResource("imagenes/iconoApp.png").toString()));
         primaryStage.setX(0);
         primaryStage.setY(0);
 
         primaryStage.setResizable(false);
         primaryStage.centerOnScreen();
-        primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setScene(scene);
         primaryStage.show();
 

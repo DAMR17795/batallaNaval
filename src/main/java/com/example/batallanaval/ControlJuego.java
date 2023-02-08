@@ -1,6 +1,7 @@
 package com.example.batallanaval;
 
 import javafx.animation.KeyFrame;
+import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.scene.control.Alert;
@@ -12,6 +13,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import static com.example.batallanaval.HelloApplication.mediaPlayer2;
@@ -84,7 +86,6 @@ public class ControlJuego {
         ganador.setOnFinished(o -> {
             System.out.println("Ganador: " + winner);
             System.exit(0);
-
         });
 
     }
@@ -97,7 +98,8 @@ public class ControlJuego {
         Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
         stage.getIcons().add(new Image(this.getClass().getResource("imagenes/iconoApp.png").toString()));
 
-
+        PauseTransition pause = new PauseTransition(Duration.seconds(0.5));
+        pause.setOnFinished(event -> {
         Platform.runLater(() -> {
 
             dialog = alert.getDialogPane();
@@ -126,17 +128,21 @@ public class ControlJuego {
             }
 
             //Paramos música de inicio
-            //HelloApplication ha = new HelloApplication();
-            //ha.mediaPlayerPause().pause();
             mediaPlayer2.stop();
 
             dialog.getStyleClass().add("dialog");
             alert.setContentText("El equipo ganador es: " + nombreEquipo);
-            alert.showAndWait().ifPresent(response -> System.exit(0));
-
+            Inicio inicio = new Inicio();
+            alert.showAndWait().ifPresent(response -> {
+                try {
+                    mediaPlayer.stop();
+                    inicio.start(new Stage());
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            });
         });
-
-
+    });
+    pause.play();
     }
-
 }
