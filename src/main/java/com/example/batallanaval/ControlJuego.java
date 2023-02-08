@@ -14,6 +14,8 @@ import javafx.util.Duration;
 
 import java.util.ArrayList;
 
+import static com.example.batallanaval.HelloApplication.mediaPlayer2;
+
 public class ControlJuego {
     ArrayList<Barcos> barcos;
     String winner = "";
@@ -125,7 +127,8 @@ public class ControlJuego {
 
             //Paramos música de inicio
             //HelloApplication ha = new HelloApplication();
-            //ha.mediaPlayerPause().stop();
+            //ha.mediaPlayerPause().pause();
+            mediaPlayer2.stop();
 
             dialog.getStyleClass().add("dialog");
             alert.setContentText("El equipo ganador es: " + nombreEquipo);

@@ -109,6 +109,7 @@ public class Barcos {
                 moverBarco();
             }
             barcoMuerto();
+            barcoTocado();
 
         }));
         moverse.setCycleCount(Timeline.INDEFINITE);
@@ -329,6 +330,38 @@ public class Barcos {
             moverse.stop();
             this.vida = 0;
         }
+    }
+
+    public synchronized void barcoTocado() {
+        if (this.getNombre().equals("acorazado") && this.getVida() <= 80) {
+            if (this.getEquipo().equals("Azul")) {
+
+            } else {
+
+            }
+        }
+        if (this.getNombre().equals("submarino") && this.getVida() <= 25) {
+            if (this.getEquipo().equals("Azul")) {
+
+            } else {
+
+            }
+        }
+        if (this.getNombre().equals("lancha") && this.getVida() <= 7) {
+            if (this.getEquipo().equals("Azul")) {
+
+            } else {
+
+            }
+        }
+        if (this.getNombre().equals("destructor") && this.getVida() <= 60) {
+            if (this.getEquipo().equals("Azul")) {
+
+            } else {
+
+            }
+        }
+
     }
 
 

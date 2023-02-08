@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class HelloApplication extends Application {
-    MediaPlayer mediaPlayer2;
+    public static MediaPlayer mediaPlayer2;
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
@@ -25,7 +25,10 @@ public class HelloApplication extends Application {
         Platform.runLater(() -> {
             Media pick2 = new Media(this.getClass().getResource("musica/cancionBatallaMenos.mp3").toString());
             mediaPlayer2 = new MediaPlayer(pick2);
+            mediaPlayer2.setCycleCount(MediaPlayer.INDEFINITE);
+            mediaPlayer2.setVolume(0.5);
             mediaPlayer2.play();
+
         });
 
         stage.setScene(scene);
