@@ -28,7 +28,6 @@ public class HelloApplication extends Application {
             mediaPlayer2.setCycleCount(MediaPlayer.INDEFINITE);
             mediaPlayer2.setVolume(0.5);
             mediaPlayer2.play();
-
         });
 
         stage.setScene(scene);
