@@ -279,7 +279,7 @@ public class Barcos {
 
             barco.moverse.stop();
 
-            ImageView muerto = new ImageView(new Image(getClass().getResourceAsStream("imagenes/muerto.png")));
+            ImageView muerto = new ImageView(new Image(getClass().getResourceAsStream("imagenes/explosion.png")));
             barco.imagenBarco.setImage(muerto.getImage());
             barco.imagenBarco.setRotate(0);
 
@@ -289,7 +289,7 @@ public class Barcos {
             Platform.runLater(() -> {
 
 
-                Media pick = new Media(this.getClass().getResource("musica/mMin.mp3").toString());
+                Media pick = new Media(this.getClass().getResource("musica/explosion.mp3").toString());
                 mediaPlayer= new MediaPlayer(pick);
                 mediaPlayer.play();
 
