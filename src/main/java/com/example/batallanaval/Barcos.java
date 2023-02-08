@@ -228,7 +228,7 @@ public class Barcos {
         Timeline animacion = new Timeline(
                 new KeyFrame(Duration.ZERO, new KeyValue(bola.xProperty(), barco1X),
                         new KeyValue(bola.yProperty(), barco1Y)),
-                new KeyFrame(Duration.seconds(0.5), new KeyValue(bola.xProperty(), barco2X),
+                new KeyFrame(Duration.seconds(0.1), new KeyValue(bola.xProperty(), barco2X),
                         new KeyValue(bola.yProperty(), barco2Y))
         );
 
@@ -335,30 +335,38 @@ public class Barcos {
     public synchronized void barcoTocado() {
         if (this.getNombre().equals("acorazado") && this.getVida() <= 80) {
             if (this.getEquipo().equals("Azul")) {
-
+                ImageView tocado = new ImageView(new Image(getClass().getResourceAsStream("imagenes/acorazadoAzulHumo.png")));
+                this.imagenBarco.setImage(tocado.getImage());
             } else {
-
+                ImageView tocado = new ImageView(new Image(getClass().getResourceAsStream("imagenes/acorazadoRojoHumo.png")));
+                this.imagenBarco.setImage(tocado.getImage());
             }
         }
         if (this.getNombre().equals("submarino") && this.getVida() <= 25) {
             if (this.getEquipo().equals("Azul")) {
-
+                ImageView tocado = new ImageView(new Image(getClass().getResourceAsStream("imagenes/lanchaAzulHumo.png")));
+                this.imagenBarco.setImage(tocado.getImage());
             } else {
-
+                ImageView tocado = new ImageView(new Image(getClass().getResourceAsStream("imagenes/lanchaRojaHumo.png")));
+                this.imagenBarco.setImage(tocado.getImage());
             }
         }
         if (this.getNombre().equals("lancha") && this.getVida() <= 7) {
             if (this.getEquipo().equals("Azul")) {
-
+                ImageView tocado = new ImageView(new Image(getClass().getResourceAsStream("imagenes/barcoAzulHumo.png")));
+                this.imagenBarco.setImage(tocado.getImage());
             } else {
-
+                ImageView tocado = new ImageView(new Image(getClass().getResourceAsStream("imagenes/barcoRojoHumo.png")));
+                this.imagenBarco.setImage(tocado.getImage());
             }
         }
         if (this.getNombre().equals("destructor") && this.getVida() <= 60) {
             if (this.getEquipo().equals("Azul")) {
-
+                ImageView tocado = new ImageView(new Image(getClass().getResourceAsStream("imagenes/destructorAzulHumo.png")));
+                this.imagenBarco.setImage(tocado.getImage());
             } else {
-
+                ImageView tocado = new ImageView(new Image(getClass().getResourceAsStream("imagenes/destructorRojoHumo.png")));
+                this.imagenBarco.setImage(tocado.getImage());
             }
         }
 
