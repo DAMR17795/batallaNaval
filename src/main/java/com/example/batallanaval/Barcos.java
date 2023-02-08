@@ -203,10 +203,9 @@ public class Barcos {
     public void animacionDisparo(Barcos barco1, Barcos barco2) {
 
         ImageView bola = new ImageView((new Image((getClass().getResourceAsStream("imagenes/cannonball.png")))));
-        bola.setFitWidth(15);
-        bola.setFitHeight(15);
+        bola.setFitWidth(25);
+        bola.setFitHeight(25);
         fondo.getChildren().add(bola);
-
 
         double barco1X = barco1.getImagenBarco().getBoundsInParent().getMinX() + barco1.getImagenBarco().getBoundsInParent().getWidth() / 2;
         double barco1Y = barco1.getImagenBarco().getBoundsInParent().getMinY() + barco1.getImagenBarco().getBoundsInParent().getHeight() / 2;
@@ -228,7 +227,7 @@ public class Barcos {
         Timeline animacion = new Timeline(
                 new KeyFrame(Duration.ZERO, new KeyValue(bola.xProperty(), barco1X),
                         new KeyValue(bola.yProperty(), barco1Y)),
-                new KeyFrame(Duration.seconds(2), new KeyValue(bola.xProperty(), barco2X),
+                new KeyFrame(Duration.seconds(0.5), new KeyValue(bola.xProperty(), barco2X),
                         new KeyValue(bola.yProperty(), barco2Y))
         );
 
@@ -241,7 +240,6 @@ public class Barcos {
         });
 
         animacion.play();
-
 
     }
 
@@ -286,8 +284,26 @@ public class Barcos {
             barco.imagenBarco.setImage(muerto.getImage());
             barco.imagenBarco.setRotate(0);
 
-            barco.imagenBarco.setFitHeight(20);
-            barco.imagenBarco.setFitWidth(20);
+            if (barco.getNombre().equals("acorazado")) {
+                barco.imagenBarco.setFitHeight(90);
+                barco.imagenBarco.setFitWidth(120);
+            }
+
+            if (barco.getNombre().equals("lancha")) {
+                barco.imagenBarco.setFitHeight(60);
+                barco.imagenBarco.setFitWidth(60);
+            }
+
+            if (barco.getNombre().equals("submarino")) {
+                barco.imagenBarco.setFitHeight(70);
+                barco.imagenBarco.setFitWidth(70);
+            }
+
+            if (barco.getNombre().equals("destructor")) {
+                barco.imagenBarco.setFitHeight(70);
+                barco.imagenBarco.setFitWidth(100);
+            }
+
 
             Platform.runLater(() -> {
 
@@ -298,7 +314,7 @@ public class Barcos {
 
             });
 
-            Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(5), new EventHandler<ActionEvent>() {
+            Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
                     barco.fondo.getChildren().remove(barco.getImagenBarco());
