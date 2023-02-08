@@ -146,30 +146,30 @@ public class Barcos {
     public synchronized void acabarJuego() {
 
         int contador = 0;
-        int barcoEsp = 0;
-        int barcoFr = 0;
+        int barcosAzules = 0;
+        int barcosRojos = 0;
 
         for (Barcos barco : barcos) {
 
             if (barco.getVida() > 0) {
 
-                if (barco.getEquipo().equals("España")) {
-                    barcoEsp++;
+                if (barco.getEquipo().equals("Azul")) {
+                    barcosAzules++;
                 }
 
-                if (barco.getEquipo().equals("Francia")) {
-                    barcoFr++;
+                if (barco.getEquipo().equals("Rojo")) {
+                    barcosRojos++;
                 }
                 contador++;
             }
         }
 
 
-        if (barcoEsp >= 1 && barcoFr == 0) {
+        if (barcosAzules >= 1 && barcosRojos == 0) {
             moverse.stop();
         }
 
-        if (barcoFr >= 1 && barcoEsp == 0) {
+        if (barcosRojos >= 1 && barcosAzules == 0) {
             moverse.stop();
         }
     }
