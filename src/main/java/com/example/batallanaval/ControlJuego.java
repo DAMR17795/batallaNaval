@@ -124,8 +124,8 @@ public class ControlJuego {
             }
 
             //Paramos música de inicio
-            HelloApplication ha = new HelloApplication();
-            ha.mediaPlayerPause().stop();
+            //HelloApplication ha = new HelloApplication();
+            //ha.mediaPlayerPause().stop();
 
             dialog.getStyleClass().add("dialog");
             alert.setContentText("El equipo ganador es: " + nombreEquipo);

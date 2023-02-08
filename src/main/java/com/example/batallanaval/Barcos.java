@@ -56,7 +56,6 @@ public class Barcos {
 
         this.bolaCañon = bola;
 
-
         this.equipo = equipo;
         this.recagarDisparo = 0;
 
@@ -64,7 +63,8 @@ public class Barcos {
             imagenBarco.setFitHeight(30);
             imagenBarco.setFitWidth(30);
             vida = 10;
-            velocidad = 10;
+            //10
+            velocidad = 15;
             sonar = 75;
             potenciaFuego = 20;
             tiempoRecarga = 2000;
@@ -72,7 +72,8 @@ public class Barcos {
             imagenBarco.setFitHeight(90);
             imagenBarco.setFitWidth(90);
             vida = 120;
-            velocidad = 3;
+            //3
+            velocidad = 8;
             sonar = 204;
             potenciaFuego = 80;
             tiempoRecarga = 8000;
@@ -81,7 +82,8 @@ public class Barcos {
             imagenBarco.setFitHeight(40);
             imagenBarco.setFitWidth(40);
             vida = 30;
-            velocidad = 2;
+            //2
+            velocidad = 7;
             sonar = 102;
             potenciaFuego = 60;
             tiempoRecarga = 4000;
@@ -90,7 +92,8 @@ public class Barcos {
             imagenBarco.setFitHeight(70);
             imagenBarco.setFitWidth(70);
             vida = 80;
-            velocidad = 5;
+            //5
+            velocidad = 10;
             sonar = 153;
             potenciaFuego = 50;
             tiempoRecarga = 6000;
