@@ -194,7 +194,7 @@ public class Barcos {
 
     public void sonidoDisparo() {
         Platform.runLater(() -> {
-            Media pick = new Media(this.getClass().getResource("musica/aa.mp3").toString());
+            Media pick = new Media(this.getClass().getResource("musica/disparo.mp3").toString());
             mediaPlayer= new MediaPlayer(pick);
             mediaPlayer.play();
         });
