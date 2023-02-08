@@ -83,12 +83,9 @@ public class ControlJuego {
             System.out.println("Ganador: " + winner);
             System.exit(0);
 
-
         });
 
-
     }
-
 
     public void mostrarEquipoGanador(String nombreEquipo) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -105,11 +102,11 @@ public class ControlJuego {
 
             if (nombreEquipo.equals("Azul")) {
                 dialog.getStylesheets().add(this.getClass().getResource("CSS/DialogoWinnerEspana.css").toString());
-                ImageView imageView = new ImageView(new Image(this.getClass().getResource("imagenes/banderaEspana.png").toString()));
+                ImageView imageView = new ImageView(new Image(this.getClass().getResource("imagenes/imagenPremio.png").toString()));
                 imageView.setFitHeight(70);
                 imageView.setFitWidth(80);
                 dialog.setGraphic(imageView);
-                Media pick = new Media(this.getClass().getResource("musica/espanaWin.mp3").toString());
+                Media pick = new Media(this.getClass().getResource("musica/cancionVictoria.mp3").toString());
                 mediaPlayer= new MediaPlayer(pick);
                 mediaPlayer.play();
 
@@ -117,15 +114,16 @@ public class ControlJuego {
             } else {
                 dialog.getStylesheets().add(this.getClass().getResource("CSS/DialogoWinnerFrancia.css").toString());
                 dialog.getStyleClass().add("dialog");
-                ImageView imageView = new ImageView(new Image(this.getClass().getResource("imagenes/banderaFrancia.png").toString()));
+                ImageView imageView = new ImageView(new Image(this.getClass().getResource("imagenes/imagenPremio.png").toString()));
                 imageView.setFitHeight(70);
                 imageView.setFitWidth(80);
                 dialog.setGraphic(imageView);
-                Media pick = new Media(this.getClass().getResource("musica/franciaWin.mp3").toString());
+                Media pick = new Media(this.getClass().getResource("musica/cancionVictoria.mp3").toString());
                 mediaPlayer= new MediaPlayer(pick);
                 mediaPlayer.play();
             }
 
+            //Paramos música de inicio
             HelloApplication ha = new HelloApplication();
             ha.mediaPlayerPause().stop();
 
