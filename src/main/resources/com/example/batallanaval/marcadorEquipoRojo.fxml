@@ -2,9 +2,11 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="color" stylesheets="@CSS/datosFrancia.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="219.0" prefWidth="218.0" styleClass="color" stylesheets="@CSS/datosFrancia.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="42.0" layoutY="155.0" styleClass="text-color" stylesheets="@CSS/datosFrancia.css" text="Destructor" />
       <ProgressBar fx:id="pbVidaDestructor" layoutX="42.0" layoutY="173.0" prefHeight="18.0" prefWidth="122.0" progress="0.0" stylesheets="@CSS/datosFrancia.css" />
@@ -18,5 +20,10 @@
       <Label fx:id="vidaLancha" layoutX="141.0" layoutY="13.0" styleClass="text-color" stylesheets="@CSS/datosFrancia.css" text="0" />
       <ProgressBar fx:id="pbVidaLancha" layoutX="39.0" layoutY="37.0" prefHeight="18.0" prefWidth="122.0" progress="0.0" stylesheets="@CSS/datosFrancia.css" />
       <ProgressBar fx:id="pbVidaSubmarino" layoutX="39.0" layoutY="82.0" prefHeight="18.0" prefWidth="122.0" progress="0.0" stylesheets="@CSS/datosFrancia.css" />
+      <ImageView fitHeight="229.0" fitWidth="218.0" layoutY="-6.0" pickOnBounds="true">
+         <image>
+            <Image url="@imagenes/marco.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

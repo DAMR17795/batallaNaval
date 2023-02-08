@@ -2,5 +2,11 @@
 
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane fx:id="ventana" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.batallanaval.HelloController" />
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="992.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.batallanaval.HelloController">
+   <children>
+      <AnchorPane fx:id="ventana" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" />
+      <AnchorPane fx:id="anchorAzul" layoutY="773.0" prefHeight="219.0" prefWidth="218.0" styleClass="color" />
+      <AnchorPane fx:id="anchorRojo" layoutX="806.0" layoutY="773.0" prefHeight="219.0" prefWidth="218.0" styleClass="color" />
+      <AnchorPane fx:id="globalMark" layoutX="216.0" layoutY="766.0" prefHeight="226.0" prefWidth="589.0" />
+   </children>
+</AnchorPane>

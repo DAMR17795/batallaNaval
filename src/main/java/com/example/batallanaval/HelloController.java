@@ -32,8 +32,14 @@ public class HelloController {
     private Image fondo;
     @FXML
     private AnchorPane ventana;
+    @FXML
+    private AnchorPane anchorAzul;
+    @FXML
+    private AnchorPane anchorRojo;
+    @FXML
+    private AnchorPane globalMark;
 
-    public void initialize() {
+    public void initialize()  {
 
         Image fondo = new Image(getClass().getResourceAsStream("imagenes/fondo.png"));
         ImageView back = new ImageView(fondo);
@@ -124,7 +130,6 @@ public class HelloController {
         asignarPos(destructorImg, numbers.remove(0));
         control.addBarco(barcoDesEsp = new Barcos("destructor", "Azul", destructorImg, control.getBarcos(), bola, ventana));
 
-
         ImageView acorazadoImg = new ImageView();
         acorazadoImg.setImage(new Image(getClass().getResourceAsStream("imagenes/acorazadoAzul.png")));
         asignarPos(acorazadoImg, numbers.remove(0));
@@ -171,12 +176,18 @@ public class HelloController {
         //Mostrar ventana Equipo Rojo
         PestañaEquipoRojo pestRojo = new PestañaEquipoRojo();
         pestRojo.getControl(control);
-        pestRojo.show();
 
         //Mostrar ventana Equipo Azul
         PestañaEquipoAzul pestAzul = new PestañaEquipoAzul();
         pestAzul.getControl(control);
-        pestAzul.show();
+
+        //Marcador Global
+        PestañaGlobal pestGlobal = new PestañaGlobal();
+
+
+        anchorRojo.getChildren().add(pestRojo.getScene().getRoot());
+        anchorAzul.getChildren().add(pestAzul.getScene().getRoot());
+        globalMark.getChildren().add(pestGlobal.getScene().getRoot());
 
         ventana.getChildren().addAll(barcoDesEsp.getImagenBarco(), barcoDesFr.getImagenBarco(), barcoAcoEsp.getImagenBarco(), barcoAcoFr.getImagenBarco(),
                 barcoLanEsp.getImagenBarco(), barcoLanFr.getImagenBarco(), barcoSubEsp.getImagenBarco(), barcoSubFr.getImagenBarco());

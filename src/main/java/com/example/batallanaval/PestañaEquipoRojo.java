@@ -27,6 +27,54 @@ public class PestañaEquipoRojo extends Stage {
         this.control = control;
         cargarInterfaz();
 
+        destructor.progressProperty().addListener((obs, oldValue, newValue) -> {
+            if (newValue.doubleValue() == 1.0d) {
+                destructor.getStyleClass().add("green-progress-bar");
+            } else if (newValue.doubleValue() <=0.99d && newValue.doubleValue() >=0.50d) {
+
+                destructor.getStyleClass().add("orange-progress-bar");
+
+            }else {
+                destructor.getStyleClass().add("red-progress-bar");
+            }
+        });
+
+        acorazado.progressProperty().addListener((obs, oldValue, newValue) -> {
+            if (newValue.doubleValue() == 1.0d) {
+                acorazado.getStyleClass().add("green-progress-bar");
+            } else if (newValue.doubleValue() <=0.99d && newValue.doubleValue() >=0.50d) {
+
+                acorazado.getStyleClass().add("orange-progress-bar");
+
+            }else {
+                acorazado.getStyleClass().add("red-progress-bar");
+            }
+        });
+
+        submarino.progressProperty().addListener((obs, oldValue, newValue) -> {
+            if (newValue.doubleValue() == 1.0d) {
+                submarino.getStyleClass().add("green-progress-bar");
+            } else if (newValue.doubleValue() <=0.99d && newValue.doubleValue() >=0.50d) {
+
+                submarino.getStyleClass().add("orange-progress-bar");
+
+            }else {
+                submarino.getStyleClass().add("red-progress-bar");
+            }
+        });
+
+        lancha.progressProperty().addListener((obs, oldValue, newValue) -> {
+            if (newValue.doubleValue() == 1.0d) {
+                lancha.getStyleClass().add("green-progress-bar");
+            } else if (newValue.doubleValue() <=0.99d && newValue.doubleValue() >=0.50d) {
+
+                lancha.getStyleClass().add("orange-progress-bar");
+
+            }else {
+                lancha.getStyleClass().add("red-progress-bar");
+            }
+        });
+
 
         Timeline moverse = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
 
