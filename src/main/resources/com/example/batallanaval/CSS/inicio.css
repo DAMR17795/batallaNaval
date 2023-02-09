@@ -10,7 +10,6 @@
 
 .button:hover {
     -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #f8d500, #f5d711, #f5d711);
-
     -fx-cursor: hand;
 }
 

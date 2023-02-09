@@ -1,0 +1,19 @@
+
+.dialog > *.content.label {
+    -fx-font-size:20px;
+    -fx-font-weight:bold;
+}
+.dialog > *.button-bar *.button {
+    -fx-pref-width:120px;
+}
+
+.button{
+    -fx-cursor:hand;
+    -fx-background-radius: 50;
+    -fx-background-color: linear-gradient(to bottom, #0022ff 0%, #3a53fd 30%, #0000f6 100%);
+}
+
+.dialog {
+    -fx-background-color: linear-gradient(to bottom, #0022ff 0%, #3651ff 30%, #001fff 100%);
+}
+

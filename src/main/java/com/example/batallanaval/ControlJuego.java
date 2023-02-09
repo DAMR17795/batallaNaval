@@ -12,23 +12,19 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
 import java.io.IOException;
 import java.util.ArrayList;
 
 import static com.example.batallanaval.HelloApplication.mediaPlayer2;
 
 public class ControlJuego {
-    ArrayList<Barcos> barcos;
-    String winner = "";
-    DialogPane dialog;
-
     MediaPlayer mediaPlayer;
+    String nombreGanador = "";
+    Timeline ganador;
+    DialogPane dialog;
+    ArrayList<Barcos> barcos;
 
-    public synchronized ArrayList<Barcos> getBarcos() {
-        return barcos;
-    }
-
+    //Constructor
     public ControlJuego() {
         barcos = new ArrayList<Barcos>();
         dialog = new DialogPane();
@@ -37,55 +33,48 @@ public class ControlJuego {
     public synchronized void addBarco(Barcos barco) {
         barcos.add(barco);
     }
+    public synchronized ArrayList<Barcos> getBarcos() {
+        return barcos;
+    }
 
-    Timeline ganador;
-
-    boolean gameover = false;
-
-    public void ganador() {
-
+    //Metodo que recorre el arraylist
+    //para ver que equipo ha ganado
+    public void gameOver() {
         ganador = new Timeline(new KeyFrame(Duration.seconds(0.05), e -> {
-
             int barcosAzules = 0;
             int barcosRojos = 0;
-            for (Barcos barco : barcos) {
 
-                if (barco.getVida() > 0) {
-                    if (barco.getEquipo().equals("Azul")) {
+            for (Barcos barco : barcos) {
+                if (barco.getVidaBarco() > 0) {
+                    if (barco.getNombreEquipo().equals("Azul")) {
                         barcosAzules++;
                     }
-                    if (barco.getEquipo().equals("Rojo")) {
+                    if (barco.getNombreEquipo().equals("Rojo")) {
                         barcosRojos++;
                     }
                 }
             }
+            //Muestra el equipo ganador
             if (barcosAzules == 0 && barcosRojos >= 1) {
-                winner = "Rojo";
-                mostrarEquipoGanador(winner);
+                nombreGanador = "Rojo";
+                mostrarEquipoGanador(nombreGanador);
                 ganador.stop();
             }
-
             if (barcosRojos == 0 && barcosAzules >= 1) {
-                winner = "Azul";
-                mostrarEquipoGanador(winner);
+                nombreGanador = "Azul";
+                mostrarEquipoGanador(nombreGanador);
                 ganador.stop();
             }
-
-
         }));
         ganador.setCycleCount(Timeline.INDEFINITE);
         ganador.play();
-
-        ganador.setOnFinished(o -> {
-            System.out.println("Ganador: " + winner);
-            System.exit(0);
-        });
-
     }
 
+    //Metodo que abre dialog
+    //para mostrar el equipo que ha ganado
     public void mostrarEquipoGanador(String nombreEquipo) {
+
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Equipo ganador");
         alert.setHeaderText(null);
 
         Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
@@ -98,7 +87,7 @@ public class ControlJuego {
             dialog = alert.getDialogPane();
 
             if (nombreEquipo.equals("Azul")) {
-                dialog.getStylesheets().add(this.getClass().getResource("CSS/DialogoWinnerEspana.css").toString());
+                dialog.getStylesheets().add(this.getClass().getResource("CSS/ganadorAzul.css").toString());
                 ImageView imageView = new ImageView(new Image(this.getClass().getResource("imagenes/imagenPremio.png").toString()));
                 imageView.setFitHeight(70);
                 imageView.setFitWidth(80);
@@ -106,10 +95,11 @@ public class ControlJuego {
                 Media pick = new Media(this.getClass().getResource("musica/cancionVictoria.mp3").toString());
                 mediaPlayer= new MediaPlayer(pick);
                 mediaPlayer.play();
+                alert.setTitle("Victoria del Equipo " + nombreEquipo);
 
 
             } else {
-                dialog.getStylesheets().add(this.getClass().getResource("CSS/DialogoWinnerFrancia.css").toString());
+                dialog.getStylesheets().add(this.getClass().getResource("CSS/ganadorRojo.css").toString());
                 dialog.getStyleClass().add("dialog");
                 ImageView imageView = new ImageView(new Image(this.getClass().getResource("imagenes/imagenPremio.png").toString()));
                 imageView.setFitHeight(70);
@@ -118,13 +108,14 @@ public class ControlJuego {
                 Media pick = new Media(this.getClass().getResource("musica/cancionVictoria.mp3").toString());
                 mediaPlayer= new MediaPlayer(pick);
                 mediaPlayer.play();
+                alert.setTitle("Victoria del Equipo " + nombreEquipo);
             }
 
             //Paramos música de inicio
             mediaPlayer2.stop();
 
             dialog.getStyleClass().add("dialog");
-            alert.setContentText("El equipo ganador es: " + nombreEquipo);
+            alert.setContentText("¡El Equipo " + nombreEquipo + " es el ganador!");
             Inicio inicio = new Inicio();
             alert.showAndWait().ifPresent(response -> {
                 try {

@@ -15,7 +15,6 @@ import java.io.IOException;
 
 public class PestañaEquipoRojo extends Stage {
     ControlJuego control;
-
     ProgressBar destructor;
     ProgressBar acorazado;
     ProgressBar lancha;
@@ -85,10 +84,10 @@ public class PestañaEquipoRojo extends Stage {
 
             for (Barcos barco : this.control.getBarcos()) {
 
-                if (barco.getNombre().equals("destructor") && barco.getEquipo().equals("Rojo")) {
-                    txtVidaDestructor.setText(String.valueOf(barco.getVida()));
-                    destructor.setProgress((barco.getVida() / 80f));
-                    if (barco.recargando() && barco.getVida() > 0) {
+                if (barco.getNombreBarco().equals("destructor") && barco.getNombreEquipo().equals("Rojo")) {
+                    txtVidaDestructor.setText(String.valueOf(barco.getVidaBarco()));
+                    destructor.setProgress((barco.getVidaBarco() / 80f));
+                    if (barco.recargando() && barco.getVidaBarco() > 0) {
                         destructorDisImg.setVisible(true);
                     } else {
                         destructorDisImg.setVisible(false);
@@ -96,10 +95,10 @@ public class PestañaEquipoRojo extends Stage {
 
                 }
 
-                if (barco.getNombre().equals("acorazado") && barco.getEquipo().equals("Rojo")) {
-                    txtVidaAcorazado.setText(String.valueOf(barco.getVida()));
-                    acorazado.setProgress((barco.getVida() / 120f));
-                    if (barco.recargando() && barco.getVida() > 0) {
+                if (barco.getNombreBarco().equals("acorazado") && barco.getNombreEquipo().equals("Rojo")) {
+                    txtVidaAcorazado.setText(String.valueOf(barco.getVidaBarco()));
+                    acorazado.setProgress((barco.getVidaBarco() / 120f));
+                    if (barco.recargando() && barco.getVidaBarco() > 0) {
                         acorazadoDisImg.setVisible(true);
                     } else {
                         acorazadoDisImg.setVisible(false);
@@ -107,10 +106,10 @@ public class PestañaEquipoRojo extends Stage {
 
                 }
 
-                if (barco.getNombre().equals("lancha") && barco.getEquipo().equals("Rojo")) {
-                    txtVidaLancha.setText(String.valueOf(barco.getVida()));
-                    lancha.setProgress((barco.getVida() / 10f));
-                    if (barco.recargando() && barco.getVida() > 0) {
+                if (barco.getNombreBarco().equals("lancha") && barco.getNombreEquipo().equals("Rojo")) {
+                    txtVidaLancha.setText(String.valueOf(barco.getVidaBarco()));
+                    lancha.setProgress((barco.getVidaBarco() / 10f));
+                    if (barco.recargando() && barco.getVidaBarco() > 0) {
                         lanchaDisImg.setVisible(true);
                     } else {
                         lanchaDisImg.setVisible(false);
@@ -118,10 +117,10 @@ public class PestañaEquipoRojo extends Stage {
 
                 }
 
-                if (barco.getNombre().equals("submarino") && barco.getEquipo().equals("Rojo")) {
-                    txtVidaSubmarino.setText(String.valueOf(barco.getVida()));
-                    submarino.setProgress((barco.getVida() / 30f));
-                    if (barco.recargando() && barco.getVida() > 0) {
+                if (barco.getNombreBarco().equals("submarino") && barco.getNombreEquipo().equals("Rojo")) {
+                    txtVidaSubmarino.setText(String.valueOf(barco.getVidaBarco()));
+                    submarino.setProgress((barco.getVidaBarco() / 30f));
+                    if (barco.recargando() && barco.getVidaBarco() > 0) {
                         submarinoDisImg.setVisible(true);
                     } else {
                         submarinoDisImg.setVisible(false);

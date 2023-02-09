@@ -7,7 +7,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -24,7 +23,6 @@ public class PestañaEquipoAzul extends Stage {
     Label txtVidaAcorazado;
     Label txtVidaLancha;
     Label txtVidaSubmarino;
-
     ImageView destructorDisImg;
     ImageView acorazadoDisImg;
     ImageView submarinoDisImg;
@@ -87,40 +85,40 @@ public class PestañaEquipoAzul extends Stage {
 
             for (Barcos barco : this.control.getBarcos()) {
 
-                if (barco.getNombre().equals("destructor") && barco.getEquipo().equals("Azul")) {
-                    if (barco.recargando() && barco.getVida() > 0) {
+                if (barco.getNombreBarco().equals("destructor") && barco.getNombreEquipo().equals("Azul")) {
+                    if (barco.recargando() && barco.getVidaBarco() > 0) {
                         destructorDisImg.setVisible(true);
                     } else {
                         destructorDisImg.setVisible(false);
                     }
-                    txtVidaDestructor.setText(String.valueOf(barco.getVida()));
-                    destructor.setProgress((barco.getVida() / 80f));
+                    txtVidaDestructor.setText(String.valueOf(barco.getVidaBarco()));
+                    destructor.setProgress((barco.getVidaBarco() / 80f));
                 }
 
-                if (barco.getNombre().equals("acorazado") && barco.getEquipo().equals("Azul")) {
-                    txtVidaAcorazado.setText(String.valueOf(barco.getVida()));
-                    acorazado.setProgress((barco.getVida() / 120f));
-                    if (barco.recargando() && barco.getVida() > 0) {
+                if (barco.getNombreBarco().equals("acorazado") && barco.getNombreEquipo().equals("Azul")) {
+                    txtVidaAcorazado.setText(String.valueOf(barco.getVidaBarco()));
+                    acorazado.setProgress((barco.getVidaBarco() / 120f));
+                    if (barco.recargando() && barco.getVidaBarco() > 0) {
                         acorazadoDisImg.setVisible(true);
                     } else {
                         acorazadoDisImg.setVisible(false);
                     }
                 }
 
-                if (barco.getNombre().equals("lancha") && barco.getEquipo().equals("Azul")) {
-                    txtVidaLancha.setText(String.valueOf(barco.getVida()));
-                    lancha.setProgress((barco.getVida() / 10f));
-                    if (barco.recargando() && barco.getVida() > 0) {
+                if (barco.getNombreBarco().equals("lancha") && barco.getNombreEquipo().equals("Azul")) {
+                    txtVidaLancha.setText(String.valueOf(barco.getVidaBarco()));
+                    lancha.setProgress((barco.getVidaBarco() / 10f));
+                    if (barco.recargando() && barco.getVidaBarco() > 0) {
                         lanchaDisImg.setVisible(true);
                     } else {
                         lanchaDisImg.setVisible(false);
                     }
                 }
 
-                if (barco.getNombre().equals("submarino") && barco.getEquipo().equals("Azul")) {
-                    txtVidaSubmarino.setText(String.valueOf(barco.getVida()));
-                    submarino.setProgress((barco.getVida() / 30f));
-                    if (barco.recargando() && barco.getVida() > 0) {
+                if (barco.getNombreBarco().equals("submarino") && barco.getNombreEquipo().equals("Azul")) {
+                    txtVidaSubmarino.setText(String.valueOf(barco.getVidaBarco()));
+                    submarino.setProgress((barco.getVidaBarco() / 30f));
+                    if (barco.recargando() && barco.getVidaBarco() > 0) {
                         submarinoDisImg.setVisible(true);
                     } else {
                         submarinoDisImg.setVisible(false);

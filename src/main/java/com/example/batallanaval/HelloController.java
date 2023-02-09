@@ -4,32 +4,21 @@ import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class HelloController {
-
-
-    private static boolean terminarJuego = false;
-    int x, y;
-
-
-    boolean pito = true;
-
-    Barcos barcoDesEsp;
-    Barcos barcoLanEsp;
-    Barcos barcoAcoEsp;
-    Barcos barcoSubEsp;
-    Barcos barcoDesFr;
-    Barcos barcoLanFr;
-    Barcos barcoAcoFr;
-    Barcos barcoSubFr;
+    Barcos lanchaRoja;
+    Barcos acorazadoRojo;
+    Barcos destructorRojo;
+    Barcos submarinoRojo;
+    Barcos lanchaAzul;
+    Barcos acorazadoAzul;
+    Barcos destructorAzul;
+    Barcos submarinoAzul;
     ControlJuego control;
-    private Image fondo;
     @FXML
     private AnchorPane ventana;
     @FXML
@@ -39,20 +28,18 @@ public class HelloController {
     @FXML
     private AnchorPane globalMark;
 
-    public void initialize()  {
+    List<Integer> posicionesBarcos = new ArrayList<>();
 
+    public void initialize()  {
         Image fondo = new Image(getClass().getResourceAsStream("imagenes/fondo.png"));
         ImageView back = new ImageView(fondo);
-
-
         ventana.setBackground(new Background(new BackgroundImage(back.getImage(), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,
                 BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT)));
-
         creacionBarcos();
     }
-    List<Integer> numbers = new ArrayList<>();
 
-    public void asignarPos(ImageView imagen, int num) {
+
+    public void posicionAzules(ImageView imagen, int num) {
 
         if (num == 1) {
 
@@ -82,30 +69,24 @@ public class HelloController {
 
     }
 
-    public void asignarPosFr(ImageView imagen, int num) {
+    public void posicionRojos(ImageView imagen, int num) {
 
         if (num == 1) {
-
             imagen.setLayoutX(882);
             imagen.setLayoutY(371);
-
         }
 
         if (num == 2) {
-
             imagen.setLayoutX(876);
             imagen.setLayoutY(75);
-
         }
 
         if (num == 3) {
             imagen.setLayoutX(876);
             imagen.setLayoutY(147);
-
         }
 
         if (num == 4) {
-
             imagen.setLayoutX(876);
             imagen.setLayoutY(575);
         }
@@ -113,73 +94,79 @@ public class HelloController {
     }
 
     public void creacionBarcos() {
-
-        numbers.add(1);
-        numbers.add(2);
-        numbers.add(3);
-        numbers.add(4);
-        Collections.shuffle(numbers);
+        posicionesBarcos.add(1);
+        posicionesBarcos.add(2);
+        posicionesBarcos.add(3);
+        posicionesBarcos.add(4);
+        Collections.shuffle(posicionesBarcos);
         control = new ControlJuego();
 
-        ImageView bola = new ImageView(new Image((getClass().getResourceAsStream("imagenes/cannonball.png"))));
-        bola.setFitWidth(30);
-        bola.setFitHeight(30);
+        //Cargamos Bala
+        ImageView balaCañon = new ImageView(new Image((getClass().getResourceAsStream("imagenes/cannonball.png"))));
+        balaCañon.setFitWidth(30);
+        balaCañon.setFitHeight(30);
 
+        //Cargamos Destructor Azul
         ImageView destructorImg = new ImageView();
         destructorImg.setImage(new Image(getClass().getResourceAsStream("imagenes/destructorAzul.png")));
         ImageView destructorDisImg = new ImageView();
         destructorDisImg.setImage(new Image(((getClass().getResourceAsStream("imagenes/recargando.png")))));
-        asignarPos(destructorImg, numbers.remove(0));
-        control.addBarco(barcoDesEsp = new Barcos("destructor", "Azul", destructorImg, control.getBarcos(), bola, ventana, destructorDisImg));
+        posicionAzules(destructorImg, posicionesBarcos.remove(0));
+        control.addBarco(destructorAzul = new Barcos("destructor", "Azul", destructorImg, control.getBarcos(),ventana));
 
+        //Cargamos Acorazado Azul
         ImageView acorazadoImg = new ImageView();
         acorazadoImg.setImage(new Image(getClass().getResourceAsStream("imagenes/acorazadoAzul.png")));
         ImageView acorazadoDisImg = new ImageView();
         acorazadoDisImg.setImage(new Image(((getClass().getResourceAsStream("imagenes/recargando.png")))));
-        asignarPos(acorazadoImg, numbers.remove(0));
-        control.addBarco(barcoAcoEsp = new Barcos("acorazado", "Azul", acorazadoImg, control.getBarcos(), bola, ventana, acorazadoDisImg));
+        posicionAzules(acorazadoImg, posicionesBarcos.remove(0));
+        control.addBarco(acorazadoAzul = new Barcos("acorazado", "Azul", acorazadoImg, control.getBarcos(), ventana));
 
+        //Cargamos Lancha Azul
         ImageView lanchaImg = new ImageView();
         lanchaImg.setImage(new Image(getClass().getResourceAsStream("imagenes/barcoAzul.png")));
         ImageView lanchaDisImg = new ImageView();
         lanchaDisImg.setImage(new Image(((getClass().getResourceAsStream("imagenes/recargando.png")))));
-        asignarPos(lanchaImg, numbers.remove(0));
-        control.addBarco(barcoLanEsp = new Barcos("lancha", "Azul", lanchaImg, control.getBarcos(), bola,ventana, lanchaDisImg));
+        posicionAzules(lanchaImg, posicionesBarcos.remove(0));
+        control.addBarco(lanchaAzul = new Barcos("lancha", "Azul", lanchaImg, control.getBarcos(),ventana));
 
+        //Cargamos Submarino Azul
         ImageView submarinoImg = new ImageView();
         submarinoImg.setImage(new Image(getClass().getResourceAsStream("imagenes/lanchaAzul.png")));
         ImageView submarinoDisImg = new ImageView();
         submarinoDisImg.setImage(new Image(((getClass().getResourceAsStream("imagenes/recargando.png")))));
-        asignarPos(submarinoImg, numbers.remove(0));
-        control.addBarco(barcoSubEsp = new Barcos("submarino", "Azul", submarinoImg, control.getBarcos(), bola, ventana, submarinoDisImg));
+        posicionAzules(submarinoImg, posicionesBarcos.remove(0));
+        control.addBarco(submarinoAzul = new Barcos("submarino", "Azul", submarinoImg, control.getBarcos(), ventana));
 
-        numbers.add(1);
-        numbers.add(2);
-        numbers.add(3);
-        numbers.add(4);
-        Collections.shuffle(numbers);
+        posicionesBarcos.add(1);
+        posicionesBarcos.add(2);
+        posicionesBarcos.add(3);
+        posicionesBarcos.add(4);
+        Collections.shuffle(posicionesBarcos);
 
+        //Cargamos Destructor Rojo
         ImageView destructorImg2 = new ImageView();
         destructorImg2.setImage(new Image(getClass().getResourceAsStream("imagenes/destructorRojo.png")));
+        posicionRojos(destructorImg2, posicionesBarcos.remove(0));
+        control.addBarco(destructorRojo = new Barcos("destructor", "Rojo", destructorImg2, control.getBarcos(), ventana));
 
-        asignarPosFr(destructorImg2, numbers.remove(0));
-        control.addBarco(barcoDesFr = new Barcos("destructor", "Rojo", destructorImg2, control.getBarcos(), bola, ventana, destructorDisImg));
-
+        //Cargamos Acorazado Rojo
         ImageView acorazadoImg2 = new ImageView();
         acorazadoImg2.setImage(new Image(getClass().getResourceAsStream("imagenes/acorazadoRojo.png")));
-        asignarPosFr(acorazadoImg2, numbers.remove(0));
-        control.addBarco(barcoAcoFr = new Barcos("acorazado", "Rojo", acorazadoImg2, control.getBarcos(), bola, ventana, acorazadoDisImg));
+        posicionRojos(acorazadoImg2, posicionesBarcos.remove(0));
+        control.addBarco(acorazadoRojo = new Barcos("acorazado", "Rojo", acorazadoImg2, control.getBarcos(), ventana));
 
+        //Cargamos Lancha Roja
         ImageView lanchaImg2 = new ImageView();
         lanchaImg2.setImage(new Image(getClass().getResourceAsStream("imagenes/barcoRojo.png")));
-        asignarPosFr(lanchaImg2, numbers.remove(0));
-        control.addBarco(barcoLanFr = new Barcos("lancha", "Rojo", lanchaImg2, control.getBarcos(), bola, ventana, lanchaDisImg));
+        posicionRojos(lanchaImg2, posicionesBarcos.remove(0));
+        control.addBarco(lanchaRoja = new Barcos("lancha", "Rojo", lanchaImg2, control.getBarcos(),ventana));
 
-
+        //Cargamos Submarino Rojo
         ImageView submarinoImg2 = new ImageView();
         submarinoImg2.setImage(new Image(getClass().getResourceAsStream("imagenes/lanchaRoja.png")));
-        asignarPosFr(submarinoImg2, numbers.remove(0));
-        control.addBarco(barcoSubFr = new Barcos("submarino", "Rojo", submarinoImg2, control.getBarcos(), bola,ventana, submarinoDisImg));
+        posicionRojos(submarinoImg2, posicionesBarcos.remove(0));
+        control.addBarco(submarinoRojo = new Barcos("submarino", "Rojo", submarinoImg2, control.getBarcos(), ventana));
 
         //Mostrar ventana Equipo Rojo
         PestañaEquipoRojo pestRojo = new PestañaEquipoRojo();
@@ -192,15 +179,16 @@ public class HelloController {
         //Marcador Global
         PestañaGlobal pestGlobal = new PestañaGlobal();
 
-
+        //Ponemos Marcadores
         anchorRojo.getChildren().add(pestRojo.getScene().getRoot());
         anchorAzul.getChildren().add(pestAzul.getScene().getRoot());
         globalMark.getChildren().add(pestGlobal.getScene().getRoot());
 
-        ventana.getChildren().addAll(barcoDesEsp.getImagenBarco(), barcoDesFr.getImagenBarco(), barcoAcoEsp.getImagenBarco(), barcoAcoFr.getImagenBarco(),
-                barcoLanEsp.getImagenBarco(), barcoLanFr.getImagenBarco(), barcoSubEsp.getImagenBarco(), barcoSubFr.getImagenBarco());
+        //Ponemos la imagen de los barcos
+        ventana.getChildren().addAll(destructorAzul.getImagenBarco(), destructorRojo.getImagenBarco(), acorazadoAzul.getImagenBarco(), acorazadoRojo.getImagenBarco(),
+                lanchaAzul.getImagenBarco(), lanchaRoja.getImagenBarco(), submarinoAzul.getImagenBarco(), submarinoRojo.getImagenBarco());
 
-        control.ganador();
+        control.gameOver();
 
     }
 }

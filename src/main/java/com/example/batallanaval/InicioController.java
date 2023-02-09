@@ -43,7 +43,7 @@ public class InicioController {
                     ((Stage) window).close();
                 }
             }
-            Media pick = new Media(this.getClass().getResource("musica/cancionBatalla.mp3").toString());
+            Media pick = new Media(this.getClass().getResource("musica/medalofhonor.mp3").toString());
             mediaPlayer = new MediaPlayer(pick);
             mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
             mediaPlayer.setVolume(0.37);
