@@ -58,8 +58,6 @@ public class ControlJuego {
                         barcosRojos++;
                     }
                 }
-
-
             }
             if (barcosAzules == 0 && barcosRojos >= 1) {
                 winner = "Rojo";
