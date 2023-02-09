@@ -6,7 +6,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="219.0" prefWidth="218.0" styleClass="color" stylesheets="@CSS/datosEspana.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="219.0" prefWidth="218.0" styleClass="color" stylesheets="@CSS/datosEspana.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="42.0" layoutY="155.0" styleClass="text-color" stylesheets="@CSS/datosEspana.css" text="Destructor" />
       <ProgressBar fx:id="pbVidaDestructor" layoutX="42.0" layoutY="173.0" prefHeight="18.0" prefWidth="122.0" progress="0.0" stylesheets="@CSS/datosEspana.css" />
@@ -23,6 +23,26 @@
       <ImageView fitHeight="227.0" fitWidth="218.0" layoutY="-7.0" pickOnBounds="true">
          <image>
             <Image url="@imagenes/marco.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="recargaDestructor" fitHeight="48.0" fitWidth="22.0" layoutX="172.0" layoutY="171.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@imagenes/recargando.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="recargaAcorazado" fitHeight="48.0" fitWidth="22.0" layoutX="172.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@imagenes/recargando.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="recargaSubmarino" fitHeight="48.0" fitWidth="22.0" layoutX="172.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@imagenes/recargando.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="recargaLancha" fitHeight="48.0" fitWidth="22.0" layoutX="172.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@imagenes/recargando.png" />
          </image>
       </ImageView>
    </children>

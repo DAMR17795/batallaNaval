@@ -25,6 +25,7 @@ public class Barcos {
     private int sonar;
     private int potenciaFuego;
     private ImageView imagenBarco;
+    private ImageView recargando;
     private double x;
 
     private double direccion;
@@ -46,13 +47,14 @@ public class Barcos {
     private long tiempoRecarga;
     private AnchorPane fondo;
 
-    public Barcos(String nombre, String equipo, ImageView imagenBarco, ArrayList<Barcos> barcos, ImageView bola, AnchorPane ventana) {
+    public Barcos(String nombre, String equipo, ImageView imagenBarco, ArrayList<Barcos> barcos, ImageView bola, AnchorPane ventana, ImageView recargando) {
         this.nombre = nombre;
         this.imagenBarco = imagenBarco;
         this.barcos = barcos;
         this.fondo = ventana;
         this.modoDisparo = false;
         this.direccion = 45;
+        this.recargando = recargando;
 
         this.bolaCañon = bola;
 
