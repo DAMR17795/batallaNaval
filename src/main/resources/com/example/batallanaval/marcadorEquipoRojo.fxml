@@ -6,20 +6,20 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="219.0" prefWidth="218.0" styleClass="color" stylesheets="@CSS/marcadorRojo.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="219.0" prefWidth="218.0" styleClass="color" stylesheets="@CSS/marcadorRojo.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="42.0" layoutY="155.0" styleClass="text-color" stylesheets="@CSS/marcadorRojo.css" text="Destructor" />
-      <ProgressBar fx:id="pbVidaDestructor" layoutX="42.0" layoutY="173.0" prefHeight="18.0" prefWidth="122.0" progress="0.0" stylesheets="@CSS/marcadorRojo.css" />
-      <Label fx:id="vidaDestructor" layoutX="142.0" layoutY="155.0" styleClass="text-color" stylesheets="@CSS/marcadorRojo.css" text="0" />
+      <ProgressBar fx:id="pbDestructor" layoutX="42.0" layoutY="173.0" prefHeight="18.0" prefWidth="122.0" progress="0.0" stylesheets="@CSS/marcadorRojo.css" />
+      <Label fx:id="indicadorDestructor" layoutX="142.0" layoutY="155.0" styleClass="text-color" stylesheets="@CSS/marcadorRojo.css" text="0" />
       <Label layoutX="41.0" layoutY="110.0" styleClass="text-color" stylesheets="@CSS/marcadorRojo.css" text="Acorazado" />
-      <Label fx:id="vidaAcorazado" layoutX="141.0" layoutY="110.0" styleClass="text-color" stylesheets="@CSS/marcadorRojo.css" text="0" />
-      <ProgressBar fx:id="pbVidaAcorazado" layoutX="42.0" layoutY="128.0" prefHeight="18.0" prefWidth="122.0" progress="0.0" stylesheets="@CSS/marcadorRojo.css" />
+      <Label fx:id="indicadorAcorazado" layoutX="141.0" layoutY="110.0" styleClass="text-color" stylesheets="@CSS/marcadorRojo.css" text="0" />
+      <ProgressBar fx:id="pbAcorazado" layoutX="42.0" layoutY="128.0" prefHeight="18.0" prefWidth="122.0" progress="0.0" stylesheets="@CSS/marcadorRojo.css" />
       <Label layoutX="40.0" layoutY="64.0" styleClass="text-color" stylesheets="@CSS/marcadorRojo.css" text="Submarino" />
       <Label layoutX="41.0" layoutY="13.0" styleClass="text-color" stylesheets="@CSS/marcadorRojo.css" text="Lancha" />
-      <Label fx:id="vidaSubmarino" layoutX="142.0" layoutY="64.0" styleClass="text-color" stylesheets="@CSS/marcadorRojo.css" text="0" />
-      <Label fx:id="vidaLancha" layoutX="141.0" layoutY="13.0" styleClass="text-color" stylesheets="@CSS/marcadorRojo.css" text="0" />
-      <ProgressBar fx:id="pbVidaLancha" layoutX="39.0" layoutY="37.0" prefHeight="18.0" prefWidth="122.0" progress="0.0" stylesheets="@CSS/marcadorRojo.css" />
-      <ProgressBar fx:id="pbVidaSubmarino" layoutX="39.0" layoutY="82.0" prefHeight="18.0" prefWidth="122.0" progress="0.0" stylesheets="@CSS/marcadorRojo.css" />
+      <Label fx:id="indicadorSubmarino" layoutX="142.0" layoutY="64.0" styleClass="text-color" stylesheets="@CSS/marcadorRojo.css" text="0" />
+      <Label fx:id="indicadorLancha" layoutX="141.0" layoutY="13.0" styleClass="text-color" stylesheets="@CSS/marcadorRojo.css" text="0" />
+      <ProgressBar fx:id="pbLancha" layoutX="39.0" layoutY="37.0" prefHeight="18.0" prefWidth="122.0" progress="0.0" stylesheets="@CSS/marcadorRojo.css" />
+      <ProgressBar fx:id="pbSubmarino" layoutX="39.0" layoutY="82.0" prefHeight="18.0" prefWidth="122.0" progress="0.0" stylesheets="@CSS/marcadorRojo.css" />
       <ImageView fitHeight="229.0" fitWidth="218.0" layoutY="-6.0" pickOnBounds="true">
          <image>
             <Image url="@imagenes/marco.png" />

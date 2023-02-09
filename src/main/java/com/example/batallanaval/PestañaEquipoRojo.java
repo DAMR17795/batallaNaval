@@ -27,6 +27,7 @@ public class PestañaEquipoRojo extends Stage {
     ImageView acorazadoDisImg;
     ImageView submarinoDisImg;
     ImageView lanchaDisImg;
+
     public PestañaEquipoRojo() {
         this.control = control;
         cargarInterfaz();
@@ -137,17 +138,8 @@ public class PestañaEquipoRojo extends Stage {
 
     }
 
-    public synchronized  void getControl(ControlJuego control){
-
+    public synchronized void getControl(ControlJuego control){
         this.control = control;
-
-    }
-
-    private void barraPr(int vidaActual) {
-
-        int vidaDestructor = 80;
-
-
     }
 
     private void cargarInterfaz() {
@@ -156,29 +148,29 @@ public class PestañaEquipoRojo extends Stage {
             Parent root = loader.load();
             Scene scene = new Scene(root, 200, 200);
 
-            destructor = (ProgressBar) loader.getNamespace().get("pbVidaDestructor");
+            destructor = (ProgressBar) loader.getNamespace().get("pbDestructor");
             destructor.setProgress(1);
-            txtVidaDestructor = (Label) loader.getNamespace().get("vidaDestructor");
+            txtVidaDestructor = (Label) loader.getNamespace().get("indicadorDestructor");
             txtVidaDestructor.setText("80");
 
-            acorazado = (ProgressBar) loader.getNamespace().get("pbVidaAcorazado");
+            acorazado = (ProgressBar) loader.getNamespace().get("pbAcorazado");
             acorazado.setProgress(1);
-            txtVidaAcorazado = (Label) loader.getNamespace().get("vidaAcorazado");
+            txtVidaAcorazado = (Label) loader.getNamespace().get("indicadorAcorazado");
             txtVidaAcorazado.setText("120");
 
-            lancha = (ProgressBar) loader.getNamespace().get("pbVidaLancha");
+            lancha = (ProgressBar) loader.getNamespace().get("pbLancha");
             lancha.setProgress(1);
-            txtVidaLancha = (Label) loader.getNamespace().get("vidaLancha");
+            txtVidaLancha = (Label) loader.getNamespace().get("indicadorLancha");
             txtVidaLancha.setText("10");
 
-            submarino = (ProgressBar) loader.getNamespace().get("pbVidaSubmarino");
+            submarino = (ProgressBar) loader.getNamespace().get("pbSubmarino");
             submarino.setProgress(1);
-            txtVidaSubmarino = (Label) loader.getNamespace().get("vidaSubmarino");
+            txtVidaSubmarino = (Label) loader.getNamespace().get("indicadorSubmarino");
             txtVidaSubmarino.setText("30");
 
-            destructor = (ProgressBar) loader.getNamespace().get("pbVidaDestructor");
+            destructor = (ProgressBar) loader.getNamespace().get("pbDestructor");
             destructor.setProgress(1);
-            txtVidaDestructor = (Label) loader.getNamespace().get("vidaDestructor");
+            txtVidaDestructor = (Label) loader.getNamespace().get("indicadorDestructor");
             txtVidaDestructor.setText("80");
 
             destructorDisImg = (ImageView) loader.getNamespace().get("recargaDestructor");
