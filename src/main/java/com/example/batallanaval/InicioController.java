@@ -36,6 +36,13 @@ public class InicioController {
     @javafx.fxml.FXML
     public void initialize() {
         Platform.runLater(() -> {
+            Stage currentStage = (Stage) btSalir.getScene().getWindow();
+
+            for (Window window : Window.getWindows()) {
+                if (window instanceof Stage && window != currentStage) {
+                    ((Stage) window).close();
+                }
+            }
             Media pick = new Media(this.getClass().getResource("musica/cancionBatalla.mp3").toString());
             mediaPlayer = new MediaPlayer(pick);
             mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);

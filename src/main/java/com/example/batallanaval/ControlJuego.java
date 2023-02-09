@@ -51,17 +51,12 @@ public class ControlJuego {
             for (Barcos barco : barcos) {
 
                 if (barco.getVida() > 0) {
-
                     if (barco.getEquipo().equals("Azul")) {
-
                         barcosAzules++;
                     }
-
                     if (barco.getEquipo().equals("Rojo")) {
-
                         barcosRojos++;
                     }
-
                 }
 
 
