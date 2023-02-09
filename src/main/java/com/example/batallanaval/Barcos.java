@@ -186,10 +186,10 @@ public class Barcos {
 
     public void balaCañonMovimiento(Barcos barco1, Barcos barco2) {
 
-        ImageView bola = new ImageView((new Image((getClass().getResourceAsStream("imagenes/cannonball.png")))));
-        fondo.getChildren().add(bola);
-        bola.setFitWidth(25);
-        bola.setFitHeight(25);
+        ImageView bala = new ImageView((new Image((getClass().getResourceAsStream("imagenes/cannonball.png")))));
+        fondo.getChildren().add(bala);
+        bala.setFitWidth(25);
+        bala.setFitHeight(25);
 
         double barco1X = barco1.getImagenBarco().getBoundsInParent().getMinX() + barco1.getImagenBarco().getBoundsInParent().getWidth() / 2;
         double barco1Y = barco1.getImagenBarco().getBoundsInParent().getMinY() + barco1.getImagenBarco().getBoundsInParent().getHeight() / 2;
@@ -209,10 +209,10 @@ public class Barcos {
         }
 
         Timeline animacion = new Timeline(
-                new KeyFrame(Duration.ZERO, new KeyValue(bola.xProperty(), barco1X),
-                        new KeyValue(bola.yProperty(), barco1Y)),
-                new KeyFrame(Duration.seconds(0.15), new KeyValue(bola.xProperty(), barco2X),
-                        new KeyValue(bola.yProperty(), barco2Y))
+                new KeyFrame(Duration.ZERO, new KeyValue(bala.xProperty(), barco1X),
+                        new KeyValue(bala.yProperty(), barco1Y)),
+                new KeyFrame(Duration.seconds(0.15), new KeyValue(bala.xProperty(), barco2X),
+                        new KeyValue(bala.yProperty(), barco2Y))
         );
 
         animacion.setOnFinished(e -> {
