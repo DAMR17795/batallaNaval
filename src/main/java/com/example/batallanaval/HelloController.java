@@ -42,27 +42,21 @@ public class HelloController {
     public void posicionAzules(ImageView imagen, int num) {
 
         if (num == 1) {
-
             imagen.setLayoutX(28);
             imagen.setLayoutY(371);
-
         }
 
         if (num == 2) {
-
             imagen.setLayoutX(28);
             imagen.setLayoutY(75);
-
         }
 
         if (num == 3) {
             imagen.setLayoutX(28);
             imagen.setLayoutY(149);
-
         }
 
         if (num == 4) {
-
             imagen.setLayoutX(28);
             imagen.setLayoutY(575);
         }
