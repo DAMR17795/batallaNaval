@@ -150,13 +150,7 @@ public class Barcos {
                 pararBarcos(this, barco);
                 tiempoUltimoDisparo = System.currentTimeMillis();
                 int disparar = this.disparar();
-                //System.out.println(this.getNombreBarco() + " " + this.getNombreEquipo() + " ataca a " + barco.getNombreBarco() + " " + barco.getNombreEquipo());
-                //System.out.println("Daña un total de: " + disparar);
                 barco.setVidaBarco(barco.getVidaBarco() - disparar);
-                //System.out.println(barco.getNombreBarco() + " " + barco.getNombreEquipo() + " tiene de vida: " + barco.getVidaBarco());
-                /*if (barco.getVidaBarco() <=0) {
-                    System.out.println(barco.getNombreBarco() + " " + barco.getNombreEquipo() + " ha perecido");
-                }*/
                 cargarSonidoCañon();
                 balaCañonMovimiento(this, barco);
                 break;
