@@ -9,18 +9,11 @@
 -fx-font-weight: bold;
 }
 
-
-.green-progress-bar {
--fx-accent: green;
-
+.orange-progress-bar {
+    -fx-accent: orange;
 }
 
 .red-progress-bar {
 -fx-accent: red;
-
 }
 
-.orange-progress-bar {
--fx-accent: orange;
-
-}
