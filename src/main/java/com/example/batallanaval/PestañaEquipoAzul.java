@@ -29,7 +29,6 @@ public class PestañaEquipoAzul extends Stage {
     ImageView lanchaDisImg;
 
     public PestañaEquipoAzul() {
-        this.control = control;
         cargarInterfaz();
 
         destructor.progressProperty().addListener((obs, oldValue, newValue) -> {

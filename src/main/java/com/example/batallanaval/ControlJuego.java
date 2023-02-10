@@ -30,13 +30,6 @@ public class ControlJuego {
         dialog = new DialogPane();
     }
 
-    public synchronized void addBarco(Barcos barco) {
-        barcos.add(barco);
-    }
-    public synchronized ArrayList<Barcos> getBarcos() {
-        return barcos;
-    }
-
     //Metodo que recorre el arraylist
     //para ver que equipo ha ganado
     public void gameOver() {
@@ -128,5 +121,12 @@ public class ControlJuego {
         });
     });
     pause.play();
+    }
+
+    public synchronized void addBarco(Barcos barco) {
+        barcos.add(barco);
+    }
+    public synchronized ArrayList<Barcos> getBarcos() {
+        return barcos;
     }
 }

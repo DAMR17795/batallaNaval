@@ -331,8 +331,6 @@ public class Barcos {
         }
     }
 
-
-
     public synchronized void setModoDisparo(boolean modoDisparo) {
         this.modoDisparo = modoDisparo;
     }

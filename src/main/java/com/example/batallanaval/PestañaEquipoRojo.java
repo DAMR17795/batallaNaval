@@ -29,11 +29,10 @@ public class PestañaEquipoRojo extends Stage {
     ImageView lanchaDisImg;
 
     public PestañaEquipoRojo() {
-        this.control = control;
         cargarInterfaz();
 
         destructor.progressProperty().addListener((obs, oldValue, newValue) -> {
-            if (newValue.doubleValue() == 1.0d) {
+            if (newValue.doubleValue() <= 1.0d) {
                 destructor.getStyleClass().add("green-progress-bar");
             } else if (newValue.doubleValue() <=0.99d && newValue.doubleValue() >=0.50d) {
 
@@ -138,10 +137,6 @@ public class PestañaEquipoRojo extends Stage {
 
     }
 
-    public synchronized void getControl(ControlJuego control){
-        this.control = control;
-    }
-
     private void cargarInterfaz() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("marcadorEquipoRojo.fxml"));
@@ -184,5 +179,8 @@ public class PestañaEquipoRojo extends Stage {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public synchronized void getControl(ControlJuego control){
+        this.control = control;
     }
 }
