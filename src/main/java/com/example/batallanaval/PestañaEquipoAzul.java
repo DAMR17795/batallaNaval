@@ -28,6 +28,14 @@ public class PestañaEquipoAzul extends Stage {
     ImageView submarinoDisImg;
     ImageView lanchaDisImg;
 
+    /**
+     * Método que carga la pestaña del equipo azul
+     * donde se encuentra la vida de los barcos, y
+     * dependiendo de la vida que vayan teniendo
+     * las progressBar irán disminuyendo y cambiando de color
+     * además de aparecer la imagen de recarga si se encuentra
+     * recargando o no
+     */
     public PestañaEquipoAzul() {
         cargarInterfaz();
 
@@ -129,7 +137,10 @@ public class PestañaEquipoAzul extends Stage {
         this.control = control;
     }
 
-
+    /**
+     * Método que carga la interfaz del a pestaña del equipo Azul,
+     * la cuál se usa en el método de arriba PestañaEquipoAzul()
+     */
     private void cargarInterfaz() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("marcadorEquipoAzul.fxml"));

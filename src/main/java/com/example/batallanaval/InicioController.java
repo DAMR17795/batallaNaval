@@ -18,6 +18,13 @@ public class InicioController {
     @javafx.fxml.FXML
     private Button btSalir;
 
+    /**
+     * Método que comienza el juego,
+     * cierra la ventana inicial de selección y para la música,
+     * abriendo la ventana del tablero del juego
+     * @param event
+     * @throws IOException
+     */
     @javafx.fxml.FXML
     public void comenzarJuego(Event event) throws IOException {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -28,11 +35,19 @@ public class InicioController {
         ha.start(new Stage());
     }
 
+    /**
+     * Método para salir del juego
+     * @param event
+     */
     @javafx.fxml.FXML
     public void salirJuego(Event event) {
         System.exit(0);
     }
 
+    /**
+     * Método inicializar que carga el fondo, los botones y la música
+     * de la ventana inicial
+     */
     @javafx.fxml.FXML
     public void initialize() {
         Platform.runLater(() -> {

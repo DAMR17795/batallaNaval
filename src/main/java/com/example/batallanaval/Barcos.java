@@ -33,7 +33,16 @@ public class Barcos {
     private AnchorPane fondo;
     private long tiempoUltimoDisparo = 0;
 
-    //Constructor
+    /**
+     * Constructor de objetos de Barcos, en este constructor
+     * se introducen parámetros para construir el objeto perteneciente
+     * a la clase Barcos
+     * @param nombreBarco -> nombre que tendrá el barco (submarino, acorazado, destructor o lancha)
+     * @param nombreEquipo -> nombre del equipo al que pertenecerá (Rojo o Azul)
+     * @param imagenBarco -> imagen que tendrá el objeto (submarino, acorazado, destructor o lancha)
+     * @param barcos -> ArrayList en el que se guardarán los barcos
+     * @param ventana -> ventana en la que se situará el barco
+     */
     public Barcos(String nombreBarco, String nombreEquipo, ImageView imagenBarco, ArrayList<Barcos> barcos, AnchorPane ventana) {
         //Parámetros de barco
         this.nombreBarco = nombreBarco;
@@ -105,7 +114,13 @@ public class Barcos {
 
     }
 
-    //Mueve el barco
+    /**
+     * Método utilizado para poder mover los barcos,
+     * obtiene primeramente la posición del barco
+     * dentro del panel y la velocidad que tiene en ese momento,
+     * para así sumar a la posición actual, la velocidad *
+     * la dirección y así poder mover el barco
+     */
     public synchronized void moverBarco() {
         double x = this.getImagenBarco().getLayoutX();
         double y = this.getImagenBarco().getLayoutY();
@@ -118,7 +133,16 @@ public class Barcos {
         this.getImagenBarco().setRotate(this.getDireccionBarco());
     }
 
-    //Dispara
+    /**
+     * Método para disparar, consiste en coger un
+     * numero random entre 0 y 100, si el numero
+     * es menor de 25, quita 0 de vida al barco
+     * que disparó si está entre 25 y 50
+     * le quita la mitad de la potencia de disparo
+     * y si es mayor a 50 le quita de vida toda la
+     * potencia de disparo que tenga el barco
+     * @return
+     */
     public synchronized int disparar() {
         Random rand = new Random();
         int random = rand.nextInt(101);
@@ -130,6 +154,14 @@ public class Barcos {
             return potenciaDisparoBarco;
         }
     }
+
+    /**
+     * Método para detectar los barcos,
+     * obtiene la distancia entre los barcos y si dicha distancia
+     * se cumple, los dos barcos se paran y el que primero
+     * encontró al otro dispara. Mientras están recargando
+     * no disparan.
+     */
     public synchronized void deteccionBarcos() {
         if (recargando() || getVidaBarco() <= 0) {
             return;
@@ -158,17 +190,30 @@ public class Barcos {
         }
     }
 
+    /**
+     * Método para parar barcos, cuando se enecuentran
+     * @param barco1 -> barco que se encuentra
+     * @param barco2 -> barco que se encuentra
+     */
     public synchronized void pararBarcos(Barcos barco1, Barcos barco2) {
         barco1.setModoDisparo(true);
         barco2.setModoDisparo(true);
     }
 
-    //Metodo de recarga
+    /**
+     * Método en el que se establece el tiempo
+     * que está el barco recargando
+     * @return
+     */
     public synchronized boolean recargando() {
         long tiempoActual = System.currentTimeMillis();
         return tiempoActual < tiempoUltimoDisparo + tiempoRecarga;
     }
 
+    /**
+     * Método para cargar el sonido de
+     * disparo mediante un hilo
+     */
     public void cargarSonidoCañon() {
         Platform.runLater(() -> {
             Media pick = new Media(this.getClass().getResource("musica/disparo.mp3").toString());
@@ -177,7 +222,17 @@ public class Barcos {
         });
     }
 
-
+    /**
+     * Método para establecer el movimiento de la bala del cañon
+     * del barco que disparó al otro. Recibe dos barcos
+     * por parámetro, carga la imagen de la bala del cañón
+     * y dependiendo del barco que se trate irá la bala a una posición
+     * definida del barco u otra, ya que cada barco al tener distintos
+     * tamaños para que la bala vaya centrada hay que corregir su posición.
+     * Por último se carga la animación de la bala.
+     * @param barco1 -> barco que entra por parámetro
+     * @param barco2 -> barco que entra por parámetro
+     */
     public void balaCañonMovimiento(Barcos barco1, Barcos barco2) {
 
         ImageView bala = new ImageView((new Image((getClass().getResourceAsStream("imagenes/cannonball.png")))));
@@ -222,9 +277,11 @@ public class Barcos {
     }
 
 
-
-    //Cambia imagen con humo si el barco tiene
-    //menos de cierta vida
+    /**
+     * Método para cambiar la imagen del barco
+     * a otra que contenga humo cuando al barco
+     * se le quita un 80% de la vida
+     */
     public synchronized void barcoTocado() {
         if (this.getNombreBarco().equals("acorazado") && this.getVidaBarco() <= 80) {
             if (this.getNombreEquipo().equals("Azul")) {
@@ -265,6 +322,12 @@ public class Barcos {
 
     }
 
+    /**
+     * Método para cambiar la imagen del barco a
+     * una explosión cuando su vida llega a 0.
+     * Después de ello deja de moverse el barco y desaparece la imagen
+     * @param barco -> barco que entra dentro del método
+     */
     public synchronized void pasarABarcoMuerto(Barcos barco) {
         if (barco.getVidaBarco() <= 0) {
             //Preparamos imagen
@@ -317,7 +380,10 @@ public class Barcos {
         }
     }
 
-    //Para el barco si ha muerto
+    /**
+     * Método para parar el barco si ha muerto,
+     * es decir su vida es menor o igual a 0
+     */
     public synchronized void pararBarcoSiMuerto() {
         if (this.getVidaBarco() <= 0) {
             movimientoBarco.stop();

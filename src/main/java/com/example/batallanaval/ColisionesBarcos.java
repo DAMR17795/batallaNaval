@@ -3,6 +3,11 @@ package com.example.batallanaval;
 import java.util.Random;
 
 public class ColisionesBarcos {
+    /**
+     * Método para detectar las colisiones del tablero,
+     * según el barco que entra por parámetro
+     * @param barco -> barco que entra por parámetro
+     */
     public static void detectarColision(Barcos barco) {
         double x = barco.getImagenBarco().getLayoutX();
         double y = barco.getImagenBarco().getLayoutY();

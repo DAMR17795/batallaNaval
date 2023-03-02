@@ -30,6 +30,11 @@ public class HelloController {
 
     List<Integer> posicionesBarcos = new ArrayList<>();
 
+    /**
+     * Método inicializar que establece el fondo del tablero
+     * y llama al metodo creacionBarcos() para meterlos también
+     * en el tablero
+     */
     public void initialize()  {
         Image fondo = new Image(getClass().getResourceAsStream("imagenes/fondo.png"));
         ImageView back = new ImageView(fondo);
@@ -38,7 +43,12 @@ public class HelloController {
         creacionBarcos();
     }
 
-
+    /**
+     * Método para establecer la posición de los barcos
+     * del equipo azul
+     * @param imagen -> imagen del barco a posciionar
+     * @param num -> numero random que se le pone para establecer la posicion
+     */
     public void posicionAzules(ImageView imagen, int num) {
 
         if (num == 1) {
@@ -63,6 +73,12 @@ public class HelloController {
 
     }
 
+    /**
+     * Método para establecer la posición de los barcos
+     * del equipo rojo
+     * @param imagen -> imagen del barco a posciionar
+     * @param num -> numero random que se le pone para establecer la posicion
+     */
     public void posicionRojos(ImageView imagen, int num) {
 
         if (num == 1) {
@@ -87,6 +103,11 @@ public class HelloController {
 
     }
 
+    /**
+     * Método para crear los barcos de los dos equipos.
+     * Establece imagenes, posiciones, la bala que tendrá,
+     * y el marcador de los dos equipos
+     */
     public void creacionBarcos() {
         posicionesBarcos.add(1);
         posicionesBarcos.add(2);

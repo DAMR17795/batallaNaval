@@ -8,6 +8,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class PestañaGlobal extends Stage {
+    /**
+     * Método que carga la interfaz de la pestaña Global
+     */
     private void cargarInterfaz() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("marcadorGlobal.fxml"));
@@ -20,6 +23,10 @@ public class PestañaGlobal extends Stage {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Método que carga la pestaña Global
+     */
     public PestañaGlobal() {
         cargarInterfaz();
     }

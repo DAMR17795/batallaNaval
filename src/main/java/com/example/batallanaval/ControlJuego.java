@@ -24,14 +24,23 @@ public class ControlJuego {
     DialogPane dialog;
     ArrayList<Barcos> barcos;
 
-    //Constructor
+    /**
+     * Constructor del control de juego
+     */
     public ControlJuego() {
         barcos = new ArrayList<Barcos>();
         dialog = new DialogPane();
     }
 
-    //Metodo que recorre el arraylist
-    //para ver que equipo ha ganado
+
+    /**
+     * Método que recorre el arrayList de barcos
+     * creados para ver que equipo ha ganado.
+     * Obtiene el nombred del equipo de cada
+     * objeto de Barcos, si el numero de Azul
+     * o Rojo es mayor que el otro, habrá ganado
+     * ese equipo
+     */
     public void gameOver() {
         ganador = new Timeline(new KeyFrame(Duration.seconds(0.05), e -> {
             int barcosAzules = 0;
@@ -63,8 +72,12 @@ public class ControlJuego {
         ganador.play();
     }
 
-    //Metodo que abre dialog
-    //para mostrar el equipo que ha ganado
+
+    /**
+     * Método para abrir un dialog, mostrando el equipo
+     * que ha ganado
+     * @param nombreEquipo -> nombre del Equipo que ha ganado
+     */
     public void mostrarEquipoGanador(String nombreEquipo) {
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -123,9 +136,19 @@ public class ControlJuego {
     pause.play();
     }
 
+    /**
+     * Método para añadir barco al arrayList que
+     * servirá para comprobar que equipo ha ganado
+     * @param barco -> barco que se añade al arrayList
+     */
     public synchronized void addBarco(Barcos barco) {
         barcos.add(barco);
     }
+
+    /**
+     * Método que devuelve el arrayList de barcos
+     * @return
+     */
     public synchronized ArrayList<Barcos> getBarcos() {
         return barcos;
     }

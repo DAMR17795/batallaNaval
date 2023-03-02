@@ -1,6 +1,9 @@
 package com.example.batallanaval;
 
 public class Constantes {
+    /**
+     * Constantes que definen los limites del tablero
+     */
     public static final double ANCHO_VENTANA_Destructor= 960;
     public static final double ALTO_VENTANA_Destructor = 705;
     public static final double ANCHO_VENTANA_lancha= 965;

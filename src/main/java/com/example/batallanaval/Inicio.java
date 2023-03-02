@@ -14,6 +14,11 @@ public class Inicio extends Application {
         launch(args);
     }
 
+    /**
+     * Método para abrir la ventana inicial de selección
+     * @param primaryStage -> escenario inicial
+     * @throws IOException
+     */
     @Override
     public void start(Stage primaryStage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Inicio.class.getResource("menuInicio.fxml"));

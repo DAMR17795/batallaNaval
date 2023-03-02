@@ -13,6 +13,14 @@ import java.io.IOException;
 
 public class HelloApplication extends Application {
     public static MediaPlayer mediaPlayer2;
+
+    /**
+     * Ventana inicial que comienza el juego,
+     * cargando el escenario de la vista y
+     * la música inicial
+     * @param stage -> escenario
+     * @throws IOException
+     */
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
