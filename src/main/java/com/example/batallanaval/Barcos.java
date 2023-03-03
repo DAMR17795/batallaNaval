@@ -236,6 +236,8 @@ public class Barcos {
     public void balaCañonMovimiento(Barcos barco1, Barcos barco2) {
 
         ImageView bala = new ImageView((new Image((getClass().getResourceAsStream("imagenes/cannonball.png")))));
+        bala.setX(-20);
+        bala.setY(20);
         fondo.getChildren().add(bala);
         bala.setFitWidth(25);
         bala.setFitHeight(25);
